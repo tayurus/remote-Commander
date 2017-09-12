@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Remote Commander</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- custom styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- custom js -->
+    <script type="text/javascript" src = "js/script.js"></script>
+</head>
+
+<body>
+    <div class="results">
+        <div class="header">
+            <div class="technology">
+                Работает на Node.js 8
+                <div class="node-icon"></div>
+            </div>
+            <div class="title">Окно просмотра результатов</div>
+            <span class="divider"></span>
+            <h4>Дизайнер от бога</h4>
+        </div>
+
+        <table class = "table tableResults">
+            <tr>
+                <th>Команда</th>
+                <th>Комментарий</th>
+                <th>Статус</th>
+                <th>Вывод</th>
+                <th>Время запуска</th>
+                <th>Время завершения</th>
+            </tr>
+        </table>
+        <button type="button" class = "btn btn-info showUtilities" name="button">К ЗАПУСКУ УТИЛИТ</button>
+    </div>
+
+    <!-- окно запуска утилит -->
+    <div class="executing">
+        <div class="header">
+            <div class="technology">
+                Работает на Node.js 8
+                <div class="node-icon"></div>
+            </div>
+            <div class="title">Окно запуска утилит</div>
+            <span class="divider"></span>
+            <h4>Дизайнер от бога</h4>
+        </div>
+        <h2>Введите команду для запуска:</h2>
+        <form class="" action="executing" method="post">
+            <table class="commandInput table table-hover">
+                <tr>
+                    <td>Команда:</td>
+                    <td><input type="text" placeholder="dir" name="command" value=""></td>
+                </tr>
+
+                <tr>
+                    <td>Комментарий к команде:</td>
+                    <td><input type="text" placeholder="Отображение списка файлов и каталогов" name="comment" value=""></td>
+                </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-success" name="button">ЗАПУСК</button></td>
+                    <td><button type="button" class="btn btn-info showResults" name="button">К ПРОСМОТРУ РЕЗУЛЬТАТОВ</button></td>
+                </tr>
+
+            </table>
+        </form>
+
+    </div>
+
+
+</body>
+
+</html>
