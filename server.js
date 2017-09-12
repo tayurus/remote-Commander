@@ -4,9 +4,10 @@ var express = require('express'), //собственно, сервер
     bodyParser = require('body-parser') //модуль, который парсит post-запрос
     var exec = require('child_process').exec;
 
-exec('calc', function callback(error, stdout, stderr){
-    // result
-});
+
+//массив всех задач
+var tasks = []
+
 app.use(bodyParser.urlencoded({extended: false}));
 
 //установка пути, где находятся файлы верстки, стилей и т.д
@@ -20,7 +21,42 @@ app.get('/', function(){
     res.sendFile(__dirname + "index.html")
 })
 
-//
+/*АНАЛИЗ POST-запросов*/
+
+
+//добавление новой задачи
+app.post('/newTask', function(req, res){
+    // console.log('NEW TASK!!!', req.body.comment, '  -  ', req.body.command);
+    var task = {
+        command :  req.body.command,
+        comment : req.body.comment,
+        timeStart :  new Date().toLocaleTimeString(),
+    }
+    task.status = 'В процессе'
+    tasks.push(task)
+
+    exec(req.body.command, function callback(error, stdout, stderr){
+        if (error){
+            task.status = "Ошибка!"
+            task.out = stderr;
+        }
+        else{
+            task.status = "Завершено"
+            task.out = stdout;
+        }
+
+        task.timeEnd = new Date().toLocaleTimeString();
+    });
+})
+
+
+
+//получение списка всех задач
+app.post('/getTasks', function(req,res){
+    // console.log('GET TASKS')
+    res.send(tasks)
+})
+
 
 
 // слушаем порт

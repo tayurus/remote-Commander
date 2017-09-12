@@ -105,7 +105,7 @@ h4{
     width: 1300px;
 }
 
-.showUtilities{
+.showUtilities, .updateUtilities{
     display: block;
-    margin: auto;
+    margin: 30px auto 0px auto;
 }
